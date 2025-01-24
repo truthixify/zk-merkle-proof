@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/src/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZK MERKLE PROOF</title>
+  </head>
+  <body>
+    <div id="app">
+        <header>
+            <h1>Merkle Proof Demo</h1>
+            <button id="connectWallet" class="connect-btn">Connect Wallet</button>
+        </header>
+        <main>
+            <div class="tabs">
+                <div class="tabs-header">
+                    <h3 class="tab-insert active">Insert</h3>
+                    <h3 class="tab-proof">Proof</h3>
+                </div>
+            </div>
+            <div class="hash">
+                <button class="call-contract-btn">Get Hashes</button>
+            </div>
+            <button id="getHashes">Get Hashes</button>
+            <button id="insertLeaf">Insert Leaf</button>
+            <button id="verifyProof">Verify Proof</button>
+            <button id="getRoot">Get Root</button>
+            <div id="output"></div>
+            <div id="tree" class="tree"></div>
+        </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+

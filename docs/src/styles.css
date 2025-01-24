@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: rgb(72, 156, 156);
+}
+
+button {
+    cursor: pointer;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+header button {
+    height: 40px;
+    padding: 10px 20px;
+    background-color: rgb(72, 156, 156);
+    border: none;
+    color: #fff;
+}
+
+.tabs {
+    width: 100%;
+    height: 5vh;
+    padding: 0 5%;
+}
+
+.tabs-header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabs-header h3 {
+    width: 50%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.tabs-header h3.active {
+    background-color: rgb(72, 156, 156);
+    color: #fff;
+}
+
+.tree {
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.branch {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+
+.leaf {
+    background-color: rgb(72, 156, 156);
+    color: #fff;
+    padding: 10px 20px;
+}

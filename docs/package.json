@@ -1,0 +1,20 @@
+{
+  "name": "doc",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.5"
+  },
+  "dependencies": {
+    "circomlibjs": "^0.1.7",
+    "snarkjs": "^0.7.5",
+    "vite-plugin-node-polyfills": "^0.23.0",
+    "web3": "^4.16.0"
+  }
+}
