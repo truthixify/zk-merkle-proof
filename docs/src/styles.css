@@ -71,5 +71,7 @@ header button {
 .leaf {
     background-color: rgb(72, 156, 156);
     color: #fff;
+    width: 12%;
+    text-align: center;
     padding: 10px 20px;
 }

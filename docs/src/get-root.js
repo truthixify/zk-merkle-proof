@@ -1,7 +1,8 @@
+import { ToastFailed } from "./utils/toast"
 
 export default async function getRoot(contract) {
     if (!contract) {
-        alert("Contract not initialized!")
+        ToastFailed("Contract not initialized!")
         return
     }
 

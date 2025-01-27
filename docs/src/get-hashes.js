@@ -1,7 +1,8 @@
+import { ToastSuccess, ToastFailed} from "./utils/toast"
 
 export default async function getHashes(contract) {
     if (!contract) {
-        alert("Contract not initialized!")
+        ToastFailed("Contract not initialized!")
         return
     }
 
@@ -10,6 +11,6 @@ export default async function getHashes(contract) {
         const hash = await contract.methods.hashes(i).call()
         hashes.push(hash)
     }
-    
+
     return hashes
 }

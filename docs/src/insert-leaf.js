@@ -1,9 +1,10 @@
 import { Web3 } from "web3";
 import { buildPoseidon } from "circomlibjs";
+import { ToastSuccess, ToastFailed} from "./utils/toast"
 
 export default async function insertLeaf(contract) {
     if (!contract) {
-        alert("Contract not initialized!")
+        ToastFailed("Contract not initialized!")
         return
     }
 
