@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZK MERKLE PROOF</title>
+    <script type="module" crossorigin src="./assets/index-DG3VuPvH.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CgM8HkC9.css">
+  </head>
+  <body>
+    <div id="app">
+        <header>
+            <h1>Merkle Proof Demo</h1>
+            <button id="connectWallet" class="connect-btn">Connect Wallet</button>
+        </header>
+        <main>
+            <div class="tabs">
+                <div class="tabs-header">
+                    <h3 class="tab-insert active">Insert</h3>
+                    <h3 class="tab-proof">Proof</h3>
+                </div>
+                <div class="tabs-main">
+                    <div class="insert">
+                        <input type="text" placeholder="Enter leaf here(only takes number)" id="insert-leaf">
+                        <button id="insertLeaf">Insert Leaf</button>
+                    </div>
+                    <div class="proof hidden">
+                        <input type="text" placeholder="Comma seperated list of path elements" id="proof-elements">
+                        <input type="text" placeholder="Comma seperated list of path index" id="proof-index">
+                        <input type="text" placeholder="Enter the leaf here" id="proof-leaf">
+                        <button id="verifyProof">Verify Proof</button>
+                    </div>
+                </div>
+            </div>
+            <div class="hash-btns">
+                <button id="getHashes">Get Hashes</button>
+                <button id="getRoot">Get Root</button>
+            </div>
+            <div class="info">
+                <h1 class="center">Merkle Tree</h1>
+                <p class="merkle-root hidden"></p>
+                <div id="tree" class="tree">
+                </div>
+            </div>
+        </main>
+    </div>
+  </body>
+</html>
+
