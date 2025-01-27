@@ -1,15 +1,24 @@
 import { groth16 } from "snarkjs"
 import { ToastSuccess, ToastFailed} from "./utils/toast"
+import { Web3 } from "web3";
 
-export default async function verifyProof(contract, leaf, path_index, path_elements) {
+export default async function verifyProof(contract, leaf, index, elements) {
     if (!contract) {
         ToastFailed("Contract not initialized!")
         return
     }
 
+    const path_elements = []
+    elements.trim().split(",").forEach(async el => {
+        const hashed = await contract.methods.hashes(el.trim()).call()
+        path_elements.push(hashed)
+    })
+    const path_index = index.trim().split(",").map(n => Number(n.trim()))
+    const hashedLeaf = await contract.methods.hashes(Number(leaf)).call()
+
     try {
         const data = {
-            leaf,
+            leaf: hashedLeaf,
             path_elements,
             path_index,
         }
@@ -34,8 +43,11 @@ export default async function verifyProof(contract, leaf, path_index, path_eleme
         ]
         const c = [argv[6], argv[7]]
         const input = argv.slice(8)
+
+        const web3 = new Web3(window.ethereum)
+        const accounts = await web3.eth.getAccounts()
     
-        const res = await contract.methods.verify(a, b, c, input).call()
+        const res = await contract.methods.verify(a, b, c, input).send({ from: accounts[0] })
     
         ToastSuccess("proof successfully verified")
     } catch (err) {

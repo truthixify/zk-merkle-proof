@@ -19,15 +19,45 @@ async function main() {
     const insertLeafBtn = document.getElementById("insertLeaf")
     const getHashesBtn = document.getElementById("getHashes")
     const verifyProofBtn = document.getElementById("verifyProof")
+    const tabInsertBtn = document.querySelector(".tab-insert")
+    const tabInsert = document.querySelector(".insert")
+    const tabProofBtn = document.querySelector(".tab-proof")
+    const tabProof = document.querySelector(".proof")
     const tree = document.getElementById("tree")
 
     // Event Listeners
+    tabInsertBtn.addEventListener("click", () => {
+        tabInsertBtn.classList.add("active")
+        tabProofBtn.classList.remove("active")
+        tabInsert.classList.remove("hidden")
+        tabProof.classList.add("hidden")
+    })
+
+    tabProofBtn.addEventListener("click", () => {
+        tabProofBtn.classList.add("active")
+        tabInsertBtn.classList.remove("active")
+        tabInsert.classList.add("hidden")
+        tabProof.classList.remove("hidden")
+    })
+
     connectBtn.addEventListener("click", async () => {
         contract = await initWallet(abi, contractAddress)
         connectBtn.textContent = "Connected"
     })
-    getRootBtn.addEventListener("click", async () => await getRoot(contract))
-    insertLeafBtn.addEventListener("click", async () => await insertLeaf(contract))
+
+    getRootBtn.addEventListener("click", async () => {
+        const merkleText = document.querySelector(".merkle-root")
+    
+        const merkleRoot = await getRoot(contract)
+        merkleText.textContent = "merkle root: " + ellipsify(merkleRoot.toString())
+        merkleText.classList.remove("hidden")
+    })
+
+    insertLeafBtn.addEventListener("click", async () => {
+        const leaf = document.getElementById("insert-leaf").value
+        await insertLeaf(contract, leaf)
+    })
+
     getHashesBtn.addEventListener("click", async () => {
         tree.replaceChildren()
         let hashes = await getHashes(contract)
@@ -52,7 +82,14 @@ async function main() {
             len = len / 2
         }
     })
-    verifyProofBtn.addEventListener("click", async () => await verifyProof(contract))
+
+    verifyProofBtn.addEventListener("click", async () => {
+        const elements = document.getElementById("proof-elements").value
+        const index = document.getElementById("proof-index").value
+        const leaf = document.getElementById("proof-leaf").value
+
+        await verifyProof(contract, leaf, index, elements)
+    })
 }
 
 main().then(() => {

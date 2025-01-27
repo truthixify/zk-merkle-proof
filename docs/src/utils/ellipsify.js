@@ -1,6 +1,5 @@
 export default function ellipsify(str) {
     const maxLength = 12
-    console.log(str)
     if (str.length <= maxLength) {
         return str;
     }

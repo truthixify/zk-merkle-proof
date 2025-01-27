@@ -7,5 +7,6 @@ export default async function getRoot(contract) {
     }
 
     const root = await contract.methods.root().call()
-    document.getElementById("output").innerText = `Merkle Root: ${root}`
+
+    return root
 }

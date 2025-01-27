@@ -19,16 +19,29 @@
                     <h3 class="tab-insert active">Insert</h3>
                     <h3 class="tab-proof">Proof</h3>
                 </div>
+                <div class="tabs-main">
+                    <div class="insert">
+                        <input type="text" placeholder="Enter leaf here(only takes number)" id="insert-leaf">
+                        <button id="insertLeaf">Insert Leaf</button>
+                    </div>
+                    <div class="proof hidden">
+                        <input type="text" placeholder="Comma seperated list of path elements" id="proof-elements">
+                        <input type="text" placeholder="Comma seperated list of path index" id="proof-index">
+                        <input type="text" placeholder="Enter the leaf here" id="proof-leaf">
+                        <button id="verifyProof">Verify Proof</button>
+                    </div>
+                </div>
             </div>
-            <div class="hash">
-                <button class="call-contract-btn">Get Hashes</button>
+            <div class="hash-btns">
+                <button id="getHashes">Get Hashes</button>
+                <button id="getRoot">Get Root</button>
             </div>
-            <button id="getHashes">Get Hashes</button>
-            <button id="insertLeaf">Insert Leaf</button>
-            <button id="verifyProof">Verify Proof</button>
-            <button id="getRoot">Get Root</button>
-            <div id="output"></div>
-            <div id="tree" class="tree"></div>
+            <div class="info">
+                <h1 class="center">Merkle Tree</h1>
+                <p class="merkle-root hidden"></p>
+                <div id="tree" class="tree">
+                </div>
+            </div>
         </main>
     </div>
     <script type="module" src="/src/main.js"></script>
