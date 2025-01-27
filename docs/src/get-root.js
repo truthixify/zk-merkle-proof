@@ -1,12 +1,12 @@
-import { ToastFailed } from "./utils/toast"
+import { ToastFailed } from "./utils/toast";
 
 export default async function getRoot(contract) {
-    if (!contract) {
-        ToastFailed("Contract not initialized!")
-        return
-    }
+  if (!contract) {
+    ToastFailed("Contract not initialized!");
+    return;
+  }
 
-    const root = await contract.methods.root().call()
+  const root = await contract.methods.root().call();
 
-    return root
+  return root;
 }
