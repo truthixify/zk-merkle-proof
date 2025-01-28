@@ -19,7 +19,15 @@ export default async function verifyProof(contract, leaf, index, elements) {
   const path_index = index
     .trim()
     .split(",")
-    .map((n) => Number(n.trim()));
+    .map((n) => {
+        let num = Number(n.trim())
+        if (num !== 0 && num !== 1) {
+            ToastFailed("Path index must be 0 or 1");
+            return
+        }
+
+        return num
+    });
   const hashedLeaf = await contract.methods.hashes(Number(leaf)).call();
 
   try {
