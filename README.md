@@ -136,6 +136,8 @@ npm run dev
 - **Get Hashes**: Retrieve all hashes in the Merkle Tree.
 - **Verify Proof**: Verify a Merkle proof.
 
+You can also view a live web UI here: [zk-merkle-proof](https://zk-merkle-proof.pages.dev/)
+
 ### Testing
 
 Run the tests using Hardhat:
